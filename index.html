@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mishbil SEO Dashboard | مشبيل - تقرير تحسين محركات البحث</title>
+    <meta name="description" content="تقرير SEO شامل لمشبيل - محل التشيز كيك في الرياض. تحليل المنافسين، الكلمات المفتاحية، وتحسين الموقع">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #bb9287;
+            --secondary: #faf3e4;
+            --dark: #2c2923;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary), #a07a73);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            margin: -40px auto 20px;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .nav a {
+            padding: 12px 25px;
+            background: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .nav a:hover { background: var(--primary); color: white; }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .stat-box {
+            background: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-box .label { color: #666; font-size: 0.9rem; }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .status.good { background: #d4edda; color: #155724; }
+        .status.warning { background: #fff3cd; color: #856404; }
+        .status.danger { background: #f8d7da; color: #721c24; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        th { background: var(--secondary); font-weight: 600; }
+        tr:hover { background: #fafafa; }
+        .recommendations li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .priority {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .priority.high { background: var(--danger); }
+        .priority.medium { background: var(--warning); }
+        .priority.low { background: var(--success); }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .nav { flex-direction: column; }
+            .nav a { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🍰 Mishbil SEO Dashboard</h1>
+        <p>مشبيل - محل الحلويات والتشيز كيك في الرياض</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#overview">نظرة عامة</a>
+        <a href="#seo">تحليل SEO</a>
+        <a href="#keywords">الكلمات المفتاحية</a>
+        <a href="#competitors">المنافسين</a>
+        <a href="#recommendations">التوصيات</a>
+    </nav>
+
+    <div class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="card">
+            <h2>📊 نظرة عامة</h2>
+            <div class="grid">
+                <div class="stat-box">
+                    <div class="number">mishable.co</div>
+                    <div class="label">الموقع الرسمي</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">Riyadh</div>
+                    <div class="label">الموقع</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">37K</div>
+                    <div class="label">متابعين Instagram</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">84K SAR</div>
+                    <div class="label">ميزانية الإعلانات</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Analysis -->
+        <section id="seo" class="card">
+            <h2>🔍 تحليل SEO الحالي</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>العنصر</th>
+                        <th>الحالة</th>
+                        <th>الملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Title Tag</td>
+                        <td><span class="status good">✓ موجود</span></td>
+                        <td>Mishable Menu | Online Ordering</td>
+                    </tr>
+                    <tr>
+                        <td>Meta Description</td>
+                        <td><span class="status warning">⚠️ يحتاج تحسين</span></td>
+                        <td>وصف عام - يحتاج تخصيص عربي</td>
+                    </tr>
+                    <tr>
+                        <td>H1 Tag</td>
+                        <td><span class="status good">✓ موجود</span></td>
+                        <td>Mishable</td>
+                    </tr>
+                    <tr>
+                        <td>SSL/HTTPS</td>
+                        <td><span class="status good">✓ آمن</span></td>
+                        <td>شهادة SSL صالحة</td>
+                    </tr>
+                    <tr>
+                        <td>اللغة العربية</td>
+                        <td><span class="status danger">✗ غير موجود</span></td>
+                        <td>الموقع إنجليزي فقط</td>
+                    </tr>
+                    <tr>
+                        <td>Schema Markup</td>
+                        <td><span class="status warning">⚠️ غير موجود</span></td>
+                        <td>يحتاج LocalBusiness Schema</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Friendly</td>
+                        <td><span class="status good">✓ متجاوب</span></td>
+                        <td>يدعم جميع الأجهزة</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Keywords -->
+        <section id="keywords" class="card">
+            <h2>🔑 الكلمات المفتاحية المستهدفة</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الكلمة</th>
+                        <th>نوع البحث</th>
+                        <th>الأولوية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>مشبيل</td>
+                        <td>Brand</td>
+                        <td><span class="priority high"></span>عالية</td>
+                    </tr>
+                    <tr>
+                        <td>تشيز كيك الرياض</td>
+                        <td>Product + Location</td>
+                        <td><span class="priority high"></span>عالية</td>
+                    </tr>
+                    <tr>
+                        <td>حلويات الرياض توصيل</td>
+                        <td>Service + Location</td>
+                        <td><span class="priority high"></span>عالية</td>
+                    </tr>
+                    <tr>
+                        <td>توصيل تشيز كيك</td>
+                        <td>Service</td>
+                        <td><span class="priority medium"></span>متوسطة</td>
+                    </tr>
+                    <tr>
+                        <td>birthday cake riyadh</td>
+                        <td>English</td>
+                        <td><span class="priority medium"></span>متوسطة</td>
+                    </tr>
+                    <tr>
+                        <td>cheesecake delivery riyadh</td>
+                        <td>English</td>
+                        <td><span class="priority medium"></span>متوسطة</td>
+                    </tr>
+                    <tr>
+                        <td>حلويات عيد الرياض</td>
+                        <td>Seasonal</td>
+                        <td><span class="priority high"></span>عالية</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Competitors -->
+        <section id="competitors" class="card">
+            <h2>🏢 تحليل المنافسين</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>المنافس</th>
+                        <th>النقاط القوة</th>
+                        <th>فرصنا</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>The CHEFZ</td>
+                        <td>تغطية واسعة، تطبيق قوي</td>
+                        <td>التركيز على التميز بالجودة</td>
+                    </tr>
+                    <tr>
+                        <td>متاجر الحلويات التقليدية</td>
+                        <td>سعر أقل، قاعدة عملاء</td>
+                        <td>التصميم العصري، التجربة الرقمية</td>
+                    </tr>
+                    <tr>
+                        <td>Cloud Kitchens</td>
+                        <td>تكلفة تشغيل أقل</td>
+                        <td>العلامة التجارية الفاخرة</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Campaign Results -->
+        <section id="campaigns" class="card">
+            <h2>📈 نتائج حملات الإعلانات (TikTok)</h2>
+            <div class="grid">
+                <div class="stat-box">
+                    <div class="number">84,037</div>
+                    <div class="label">إجمالي المصروف (SAR)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">32.5M</div>
+                    <div class="label">إجمالي الظهور</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">650K</div>
+                    <div class="label">إجمالي النقرات</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">2,518</div>
+                    <div class="label">إجمالي التحويلات</div>
+                </div>
+            </div>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الحملة</th>
+                        <th>المصروف</th>
+                        <th>الظهور</th>
+                        <th>التحويلات</th>
+                        <th>النتيجة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>العيد</td>
+                        <td>1,502 SAR</td>
+                        <td>531K</td>
+                        <td>2,518 ✅</td>
+                        <td><span class="status good">ممتاز</span></td>
+                    </tr>
+                    <tr>
+                        <td>The CHEFZ (مؤثرين)</td>
+                        <td>21,517 SAR</td>
+                        <td>3.1M</td>
+                        <td>0</td>
+                        <td><span class="status danger">يحتاج مراجعة</span></td>
+                    </tr>
+                    <tr>
+                        <td>كيك العيد (Domeable)</td>
+                        <td>3,148 SAR</td>
+                        <td>901K</td>
+                        <td>0</td>
+                        <td><span class="status danger">بدون نتائج</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Recommendations -->
+        <section id="recommendations" class="card">
+            <h2>💡 التوصيات</h2>
+            <ul class="recommendations">
+                <li>
+                    <span class="priority high"></span>
+                    <strong>إضافة وصف عربي:</strong> إنشاء Meta Description مخصصة باللغة العربية تصف التشيز كيك والنكهات السعودية
+                </li>
+                <li>
+                    <span class="priority high"></span>
+                    <strong>إنشاء Google Business Profile:</strong> لتسهيل ظهور الموقع في البحث المحلي
+                </li>
+                <li>
+                    <span class="priority high"></span>
+                    <strong>إضافة Schema Markup:</strong> LocalBusiness + Restaurant Schema
+                </li>
+                <li>
+                    <span class="priority medium"></span>
+                    <strong>تحسين محتوى Instagram:</strong>67K متابع - فرصة كبيرة للتحويل
+                </li>
+                <li>
+                    <span class="priority medium"></span>
+                    <strong>ربط أكواد التتبع:</strong> جميع حملات المؤثرين تحتاج UTM parameters
+                </li>
+                <li>
+                    <span class="priority medium"></span>
+                    <strong>إنشاء مدونة:</strong> مقالات عن الحلويات السعودية والنكهات الموسمية
+                </li>
+                <li>
+                    <span class="priority low"></span>
+                    <strong>Google Ads:</strong> الحملات الصيفية للـ Summer Box
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>🍰 Mishbil SEO Dashboard | Socialbalaant</p>
+        <p>آخر تحديث: أبريل 2026</p>
+    </footer>
+</body>
+</html>
